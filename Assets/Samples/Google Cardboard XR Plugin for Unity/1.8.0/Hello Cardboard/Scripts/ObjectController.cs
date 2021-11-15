@@ -35,7 +35,7 @@ public class ObjectController : MonoBehaviour
     public Material GazedAtMaterial;
 
     public SoundManager sm;
-
+    public ScoreManager scoreManager; 
     // The objects are about 1 meter in radius, so the min/max target distance are
     // set so that the objects are always within the room (which is about 5 meters
     // across).
@@ -83,6 +83,7 @@ public class ObjectController : MonoBehaviour
     public void TeleportRandomly()
     {
         sm.Play(0);
+        scoreManager.UpdateScore();
         // Picks a random sibling, activates it and deactivates itself.
         int sibIdx = transform.GetSiblingIndex();
         int numSibs = transform.parent.childCount;
